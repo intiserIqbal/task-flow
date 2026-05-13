@@ -1,0 +1,152 @@
+/* Base styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Task form */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.task-form input,
+.task-form textarea,
+.task-form button {
+  padding: 0.75rem;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box; /* ensures padding doesn’t add extra width */
+}
+
+.task-form button {
+  cursor: pointer;
+}
+
+.error-message {
+  color: red;
+}
+
+/* Filter bar */
+.filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
+}
+
+.filter-bar button {
+  padding: 0.6rem 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  background-color: #ddd;
+  transition: 0.2s ease;
+}
+
+.filter-bar button:hover {
+  opacity: 0.9;
+}
+
+.active-filter {
+  background-color: #222 !important;
+  color: white;
+}
+
+/* Task items */
+.task-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  flex-wrap: wrap; /* allow wrapping if content is too wide */
+}
+
+.task-content {
+  flex: 1;
+  min-width: 0; /* critical: allows text to wrap instead of pushing layout */
+  word-wrap: break-word;
+}
+
+.task-actions {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.task-actions button {
+  margin-left: 5px;
+}
+
+/* Completed tasks */
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 0.75rem;
+  }
+
+  .task-item {
+    padding: 0.75rem;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .task-actions {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .task-form input,
+  .task-form textarea,
+  .task-form button {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .task-item {
+    padding: 0.5rem;
+    flex-direction: column; /* stack content & actions */
+    align-items: flex-start;
+  }
+
+  .task-actions button {
+    margin-left: 0; /* reset margin for stacked layout */
+  }
+}
+
+@media (max-width: 400px) {
+  body {
+    font-size: 0.9rem;
+  }
+
+  .task-form input,
+  .task-form textarea,
+  .task-form button {
+    font-size: 0.85rem;
+  }
+}

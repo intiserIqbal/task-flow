@@ -1,7 +1,8 @@
 const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 
-const dbPath = path.join(__dirname, "../../tasks.db");
+// Always resolve to db/tasks.db
+const dbPath = path.join(__dirname, "tasks.db");
 
 const db = new sqlite3.Database(dbPath, (err) => {
   if (err) {
@@ -11,6 +12,7 @@ const db = new sqlite3.Database(dbPath, (err) => {
   }
 });
 
+// Create table if not exists
 db.run(`
   CREATE TABLE IF NOT EXISTS tasks (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -21,6 +23,5 @@ db.run(`
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
   )
 `);
-
 
 module.exports = db;

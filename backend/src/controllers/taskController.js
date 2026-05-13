@@ -46,7 +46,17 @@ const updateTask = async (req, res) => {
       });
     }
 
-    await taskModel.updateTask(id, title, description, status);
+    // fallback to existing values if not provided
+    const updatedTitle = title ?? existingTask.title;
+    const updatedDescription = description ?? existingTask.description;
+    const updatedStatus = status ?? existingTask.status;
+
+    await taskModel.updateTask(
+      id,
+      updatedTitle,
+      updatedDescription,
+      updatedStatus,
+    );
 
     const updatedTask = await taskModel.getTaskById(id);
 

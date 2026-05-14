@@ -7,9 +7,6 @@
 [![React](https://img.shields.io/badge/React-19-61DAFB)](https://react.dev/)
 [![SQLite](https://img.shields.io/badge/SQLite-3.0-blue)](https://www.sqlite.org/index.html)
 
-<p align="center">
-  <img src="README-images/main_ui.png" width="80%" alt="Task-Flow UI Screenshot">
-</p>
 
 **Task-Flow** is a mini full-stack personal task management app featuring a modern React frontend, robust Node.js/Express backend, and persistent SQLite storage. It supports CRUD operations, completion toggling, filtering, and a clean, responsive UI. Designed for clarity, stability, and ease of local setup.
 
